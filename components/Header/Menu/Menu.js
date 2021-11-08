@@ -24,13 +24,13 @@ function MenuPlataforms() {
     return(
         <Menu>
             <Link href="index.html">
-                <Menu.Item as="a">Home</Menu.Item>
+                <Menu.Item as="a">Inicio</Menu.Item>
            </Link>
             <Link href="#">
                 <Menu.Item as="a">Tela</Menu.Item>
            </Link>
            <Link href="#">
-                <Menu.Item as="a">Algodon</Menu.Item>
+                <Menu.Item as="a">Algodón</Menu.Item>
            </Link>
            <Link href="#">
                 <Menu.Item as="a">Poliester</Menu.Item>
