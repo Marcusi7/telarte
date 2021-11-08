@@ -23,6 +23,9 @@ export default function MenuWeb() {
 function MenuPlataforms() {
     return(
         <Menu>
+            <Link href="index.html">
+                <Menu.Item as="a">Home</Menu.Item>
+           </Link>
             <Link href="#">
                 <Menu.Item as="a">Tela</Menu.Item>
            </Link>
@@ -35,6 +38,7 @@ function MenuPlataforms() {
            <Link href="#">
                 <Menu.Item as="a">Contacto</Menu.Item>
            </Link>
+
         </Menu>
     );
 }
