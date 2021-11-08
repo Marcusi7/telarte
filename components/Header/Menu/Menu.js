@@ -33,7 +33,7 @@ function MenuPlataforms() {
                 <Menu.Item as="a">Poliester</Menu.Item>
            </Link>
            <Link href="#">
-                <Menu.Item as="a">Contactoo</Menu.Item>
+                <Menu.Item as="a">Contacto</Menu.Item>
            </Link>
         </Menu>
     );
