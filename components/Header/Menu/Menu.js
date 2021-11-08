@@ -32,6 +32,9 @@ function MenuPlataforms() {
            <Link href="#">
                 <Menu.Item as="a">Poliester</Menu.Item>
            </Link>
+           <Link href="#">
+                <Menu.Item as="a">Contactoo</Menu.Item>
+           </Link>
         </Menu>
     );
 }
