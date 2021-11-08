@@ -27,7 +27,7 @@ function MenuPlataforms() {
                 <Menu.Item as="a">Inicio</Menu.Item>
            </Link>
             <Link href="#">
-                <Menu.Item as="a">Tela</Menu.Item>
+                <Menu.Item as="a">Telas</Menu.Item>
            </Link>
            <Link href="#">
                 <Menu.Item as="a">Algodón</Menu.Item>
@@ -38,7 +38,9 @@ function MenuPlataforms() {
            <Link href="#">
                 <Menu.Item as="a">Contacto</Menu.Item>
            </Link>
-
+           <Link href="#">
+                <Menu.Item as="a">Nosotros</Menu.Item>
+           </Link>
         </Menu>
     );
 }
