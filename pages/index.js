@@ -3,10 +3,8 @@ export default function Home() {
   return (
     
       <BasicLayout>
-      <h1>JC tehc</h1>
+      <h1>TelArte</h1>
+      
       </BasicLayout>
-    
-   
-    
   )
 }

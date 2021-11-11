@@ -1,0 +1,23 @@
+.basic-modal {
+  .header {
+    background-color: $primary !important;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    span,
+    i {
+      color: $font-light;
+    }
+    i {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      font-size: 25px;
+      margin: 0;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

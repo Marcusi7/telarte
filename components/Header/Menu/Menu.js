@@ -3,10 +3,16 @@ import { useState } from "react";
 import {Container, Menu, Grid, Icon, Label, GridColumn} from "semantic-ui-react";
 import Link from "next/link";
 import BasicModal from "../../Modal/BasicModal";
+import Auth from "../../Auth";
 
 
 export default function MenuWeb() {
-const {showModal, state, setstate} = useState(intialState)
+    
+    const [showModal, setShowModal] = useState(false);
+    const [titleModal, setTitleModal] = useState("iniciar sesion");
+
+    const onShowModal = () => setShowModal(true);
+    const onCloseModal = () => setShowModal(false);
 
     return (
         <div className="menu">
@@ -16,12 +22,17 @@ const {showModal, state, setstate} = useState(intialState)
                       <MenuPlataforms />
                   </Grid.Column>
                   <Grid.Column className="menu__right" width={10}>
-                      <MenuOptions />
+                      <MenuOptions onShowModal={onShowModal} />
                   </Grid.Column>
               </Grid>
           </Container>
-          <BasicModal>
-              <h2>Contenido de modal</h2>
+          <BasicModal 
+          show={showModal} 
+          setShow={setShowModal} 
+          title={titleModal} 
+          size="small">
+              <Auth onCloseModal={onCloseModal} 
+              setTitleModal={setTitleModal}/>
           </BasicModal >
         </div>
     );
@@ -32,19 +43,19 @@ function MenuPlataforms() {
     return(
         <Menu>
             <Link href="index.html">
-                <Menu.Item as="a">Home</Menu.Item>
+                <Menu.Item as="a">Inicio</Menu.Item>
            </Link>
             <Link href="#">
-                <Menu.Item as="a">Tela</Menu.Item>
+                <Menu.Item as="a">Dormitorio</Menu.Item>
            </Link>
            <Link href="#">
-                <Menu.Item as="a">Algodón</Menu.Item>
+                <Menu.Item as="a">Cuarto de Baño</Menu.Item>
            </Link>
            <Link href="#">
-                <Menu.Item as="a">Poliester</Menu.Item>
+                <Menu.Item as="a">Hogar</Menu.Item>
            </Link>
            <Link href="#">
-                <Menu.Item as="a">Nosotros</Menu.Item>
+                <Menu.Item as="a">Acerca de</Menu.Item>
            </Link>
            <Link href="#">
                 <Menu.Item as="a">Contacto</Menu.Item>
@@ -54,10 +65,11 @@ function MenuPlataforms() {
     );
 }
 
-function MenuOptions() {
+function MenuOptions(props) {
+    const { onShowModal } = props;
     return(
         <Menu>
-            <Menu.Item>
+            <Menu.Item onClick={onShowModal}>
                 <Icon name="user outline" />
                 Mi cuenta
             </Menu.Item>
