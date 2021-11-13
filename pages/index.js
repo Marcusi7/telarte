@@ -1,10 +1,10 @@
-import BasicLayout from "../layouts/BasicLayout/BasicLayout"
+import BasicLayout from "../layouts/BasicLayout/BasicLayout";
 export default function Home() {
   return (
     
-      <BasicLayout>
+      <BasicLayout className="home">
       <h1>TelArte</h1>
       
       </BasicLayout>
-  )
+  );
 }

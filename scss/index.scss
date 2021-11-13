@@ -3,6 +3,9 @@
 //layouts
 @import "/layouts/BasicLayout/BasicLayout.scss";
 
+//Pages
+@import "../pages/account.scss";
+
 //Components
 @import "../components/Header/Header.scss";
 @import "../components/Header/TopBar/TopBar.scss";

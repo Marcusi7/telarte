@@ -1,11 +1,18 @@
 import {Container} from "semantic-ui-react"; //Gracias a este contenedor, podemos configurar los layouts
+import classNames from "classnames";
 import Header from "../../components/Header";
 
 
 export default function BasicLayout(props) {
-const {children} =props;    
+const { children, className } =props;   
+
 return (
-    <Container fluid className="basic-layout"> 
+
+    //className="basic-layout"
+    <Container fluid className={classNames("basic-layout", {
+        [className]: className,
+    })}
+    > 
         <Header />
         <Container className="content">{children}</Container> 
 

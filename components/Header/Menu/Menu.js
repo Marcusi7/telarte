@@ -89,14 +89,14 @@ function MenuOptions(props) {
         <Menu>
             {user ? (
                 <>
-                    <Link href="/pedido">
+                    <Link href="/orders">
                         <Menu.Item as="a">
                         <Icon name="cart"/> 
                         Mis artículos
                         </Menu.Item>
                     </Link>
 
-                    <Link href="/cuenta">
+                    <Link href="/account">
                         <Menu.Item as="a">
                         <Icon name="user ontline"/> 
                         {user.name} {user.lastname}
