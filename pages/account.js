@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import BasicLayout from "../layouts/BasicLayout/BasicLayout";
 import { getMeApi} from "../api/user";
 import useAuth from "../Hooks/useAuth";
+import ChangeNameForm from "../components/Account/ChangeNameForm/ChangeNameForm";
 
 
 export default function Account() {
@@ -25,16 +26,19 @@ export default function Account() {
 
     return (
         <BasicLayout classname="account">
-            <Configuration />
+            <Configuration user={user}/>
         </BasicLayout>
     );
 }
 
-function Configuration() {
+function Configuration(props) {
+    const { user } = props;
     return(
         <div className="account_configuration">
                 <div className="title">Configuracion</div> 
-                <div className="data">Formularios de configuracion</div>
+                <div className="data">
+                    <ChangeNameForm user={user}/>
+                </div>
             </div>
     )
 } 
