@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import BasicLayout from "../layouts/BasicLayout/BasicLayout";
-import { getMeApi} from "../api/user";
+import { getMeApi } from "../api/user";
 import useAuth from "../Hooks/useAuth";
 import ChangeNameForm from "../components/Account/ChangeNameForm/ChangeNameForm";
 import ChangeEmailForm from "../components/Account/ChangeEmailForm/ChangeEmailForm";
+import ChangePasswordForm from "../components/Account/ChangePasswordForm";
 
 export default function Account() {
     const [user, setUser] = useState(undefined);
@@ -14,8 +15,8 @@ export default function Account() {
     useEffect(() => {
       (async () => {
           const response = await getMeApi(logout);
-          setUser(response || null)
-      })()
+          setUser(response || null);
+      })();
     }, [auth]);
 
     if(user === undefined) return null;
@@ -26,22 +27,40 @@ export default function Account() {
 
     return (
         <BasicLayout classname="account">
-            <Configuration user={user} logout={logout} setReloadUser={setReloadUser}/>
+            <Configuration 
+                user={user} 
+                logout={logout} 
+                setReloadUser={setReloadUser}
+            />
         </BasicLayout>
     );
 }
 
 function Configuration(props) {
-    const { user,logout,setReloadUser} = props;
+    const { user, logout, setReloadUser} = props;
     return(
         <div className="account_configuration">
-                <div className="title">Configuracion</div> 
+                <div className="title">
+                    Configuración
+                </div> 
                 <div className="data">
-                    <ChangeNameForm user={user} logout={logout} setReloadUser={setReloadUser}/>
-                    <ChangeEmailForm user={user} logout={logout}  setReloadUser={setReloadUser}/>
+                    <ChangeNameForm 
+                        user={user} 
+                        logout={logout} 
+                        setReloadUser={setReloadUser}
+                    />
+                    <ChangeEmailForm 
+                        user={user} 
+                        logout={logout} 
+                        setReloadUser={setReloadUser}
+                    />
+                    <ChangePasswordForm 
+                        user={user} 
+                        logout={logout} 
+                    />
                 </div>
-            </div>
-    )
+        </div>
+    );
 } 
 
 
