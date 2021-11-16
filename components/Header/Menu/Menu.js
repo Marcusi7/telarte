@@ -75,7 +75,7 @@ function MenuPlataforms() {
                 <Menu.Item as="a">Hogar</Menu.Item>
            </Link>
            <Link href="#">
-                <Menu.Item as="a">Acerca de</Menu.Item>
+
            </Link>
           
 
