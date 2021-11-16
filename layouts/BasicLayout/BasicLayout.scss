@@ -1,7 +1,32 @@
 .basic-layout {
   min-height: 100vh;
-}
-.content {
-  background-color: $background-grey-light;
-  height: 100vh;
+  background-image: url("https://telarte.s3.amazonaws.com/img_estatica/fondo-de-la-hoja-notas-papel-o-cartC3B3n-colores-textura-color-con-sombras-orientaciC3B3n-horizontal-del-pantalla-resumen-papelerC3ADa-198673178.png");
+  background-size: cover;
+  background-position: center;
+
+  .content {
+    background-color: $background-grey-light;
+    height: calc(100vh - 130px);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .foo {
+    padding-top: 0.1%;
+    margin-top: 1%;
+  }
+  .seccionpie {
+    float: left;
+    width: 50%;
+    padding-top: 1%;
+    padding-bottom: 0.5%;
+    text-align: center;
+    background-color: #d2e772;
+  }
 }
