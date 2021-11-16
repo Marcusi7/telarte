@@ -3,18 +3,19 @@ import { Form, Button} from "semantic-ui-react";
 import { useFormik } from 'formik';
 import * as Yup from "yup";
 import useAuth from '../../../Hooks/useAuth';
-import { createAddressApi } from '../../../api/address';
+import { createAddressApi, updateAddressApi } from '../../../api/address';
 
 export default function AddressForm(props) {
-    const {setShowModal, setReloadAddresses}=props;
+    const {setShowModal, setReloadAddresses, newAddress, address }=props;
     const [loading, setLoading] = useState(false);
     const { auth, logout } = useAuth(); 
 
     const formik=useFormik({
-        initialValues: initialValues(),
+        initialValues: initialValues(address),
         validationSchema: Yup.object(validationSchema()),
         onSubmit: (formData)=>{
-            createAddress(formData);
+            newAddress ? createAddress(formData) : updateAddress(formData);
+
         },
     });
 
@@ -36,6 +37,26 @@ export default function AddressForm(props) {
             setLoading(false);
             setShowModal(false);
         }  
+    };
+
+    const updateAddress = (formData) => {
+        setLoading(true);
+        const formDataTemp = {
+            ...formData,
+            user: auth.idUser,
+        };
+        const response = updateAddressApi(address._id, formDataTemp, logout);
+
+        if(!response) {
+            toast.warning("Error al actualizar la dirección");
+            setLoading(false);
+        } else {
+            formik.resetForm();
+            setReloadAddresses(true);
+            setLoading(false);
+            setShowModal(false);
+        }
+        
     };
 
     return (
@@ -104,7 +125,7 @@ export default function AddressForm(props) {
 
             <div className="actions">
                 <Button className="submit" type="submit" loading={loading}>
-                    Crear Dirección
+                    {newAddress ? "Crear dirección" : "Actualizar dirección"}
                 </Button>
             </div>
 
@@ -112,14 +133,14 @@ export default function AddressForm(props) {
     );
 }
 
-function initialValues() {
+function initialValues(address) {
     return {
-        title: "",
-        name: "",
-        phone: "",
-        state: "",
-        city: "", 
-        address: "",
+        title: address?.title || "",
+        name: address?.name || "",
+        phone: address?.phone || "",
+        state: address?.state || "",
+        city: address?.city || "", 
+        address: address?.address || "",
     };
 }
 
