@@ -11,7 +11,7 @@ export async function registerApi(formData){
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(formData)
+            body: JSON.stringify(formData),
         };
         const response = await fetch(url, params);
         const result = await response.json();
@@ -21,7 +21,6 @@ export async function registerApi(formData){
     } catch (error) {
         console.log(error);
         return null;
-
     }
 }
 

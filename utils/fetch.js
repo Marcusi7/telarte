@@ -25,6 +25,6 @@ export async function authFetch(url, params, logout) {
             } catch (error) {
                 return error;
             }
-        }
+        };
     }
 }
