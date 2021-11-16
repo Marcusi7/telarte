@@ -1,24 +1,67 @@
 import React, {useState, useEffect} from 'react';
+import { Grid, Button } from "semantic-ui-react";
+import { map ,size } from "lodash";
 import { getAddressesApi } from '../../../api/address';
 import useAuth from '../../../Hooks/useAuth';
 
-export default function ListAddress() {
+export default function ListAddress(props) {
+    const {reloadAddresses, setReloadAddresses} = props;
     const [addresses, setAddresses] = useState(null);
     const {auth, logout} = useAuth();
-    console.log(addresses);
+    
 
     useEffect(() => {
         (async () => {
             const response = await getAddressesApi(auth.idUser, logout);
             //comentado
             setAddresses(response || []);
-            console.log(response);
+            setReloadAddresses(false);         
         })();
-    }, []);
+    }, [reloadAddresses]);
 
+    if (!addresses ) return null; 
+    
     return (
-        <div>
-            <h1>ListAddress...</h1>   
+        <div className="list-address">
+        
+            {size(addresses) === 0 ? (
+                <h3>No hay direcciones</h3>
+            ) : (
+                <Grid>
+
+                    {map(addresses, (address) =>(
+                        <Grid.Column key={address.id} mobile= {16} tablet= {8} computer={4}>
+
+                            <Address address={address}/>
+
+                        </Grid.Column>
+                    ))}
+
+                </Grid>
+            )}
+        </div>
+    );
+}
+
+
+function Address(props){
+    console.log(props);
+    const {address} = props;
+    return(
+
+        <div className= "address">
+            <p>{address.title}</p>
+            <p>{address.name}</p>
+            <p>{address.address}</p>
+            <p>{address.state}, {address.city}</p>
+            <p>{address.phone}</p>
+
+
+        <div className="actions">
+            <Button primary>Editar</Button>
+            <Button >Eliminar</Button>
+        </div>
+
         </div>
     );
 }

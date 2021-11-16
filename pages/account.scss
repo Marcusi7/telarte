@@ -1,12 +1,12 @@
 .account {
-  &_configuration,
-  &_addresses {
+  &__configuration,
+  &__addresses {
     position: relative;
     padding: 10px;
 
     .title {
       width: max-content;
-      background-color: $background-dark-absolute;
+      background-color: $primary;
       color: $font-light;
       padding: 5px 10px;
       border-radius: 5px 5px 0 0;
@@ -18,7 +18,7 @@
     }
   }
 
-  &_addresses {
+  &__addresses {
     .title {
       i {
         position: absolute;
