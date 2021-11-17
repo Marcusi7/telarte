@@ -29,3 +29,17 @@ export async function getProductsCategoriaApi(categoria, limit, start){
         return null; 
     }
 }
+export async function getTotalProductsCategoriaApi(categoria){
+      try{
+        const url=`${BASE_PATH}/products/count?categoria.url=${categoria}`;
+        const response= await fetch(url);
+        const result= await response.json();
+        return result;
+      }catch(error){
+        console.log(error);
+        return null;
+
+      }
+
+
+}
