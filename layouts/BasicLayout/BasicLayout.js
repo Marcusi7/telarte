@@ -13,10 +13,10 @@ return (
         [className]: className,
     })}
     > 
-        <Header />
-        <Container className="content">{children}</Container> 
-
-        <footer className = "foo">
+    <Header />
+    <Container className="content">{children}</Container> 
+    
+        <footer className = "foo">          
             <div>
             <section className = "seccionpie">
                 <h3>TELARTE</h3>
@@ -25,7 +25,7 @@ return (
                     <p><b>Contacto: </b>jalarcon@puce.com.ec</p>
             </section>
             <section className = "seccionpie">
-                <h3>POPULARES</h3>
+                <h3>DESTACADOS</h3>
                     <p><a href="../productos/dormitorio">Ropa de cama</a></p>
                     <p><a href="../productos/cuarto-de-bano">Accesorios para el baño</a></p>
                     <p><a href="../productos/hogar">Artículos varios</a></p>

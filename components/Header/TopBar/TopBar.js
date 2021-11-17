@@ -23,7 +23,7 @@ function Logo() {
     return (
         <Link href="/">
             <a>
-            <Image src="telarte_logo.png" alt="Textiles" width="95px" heigh="95px"/>
+            <Image src="https://telarte.s3.amazonaws.com/telarte_logo.png" alt="Textiles" width="95px" heigh="95px"/>
             </a>
         </Link>
     );
@@ -31,6 +31,6 @@ function Logo() {
 
 function Search() {
     return(
-        <Input id="serach-obj" icon={{ name: "search"}} />
-    )
+        <Input id="search-obj" icon={{ name: "search"}} />
+    );
 }

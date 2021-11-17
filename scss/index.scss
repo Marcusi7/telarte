@@ -6,6 +6,7 @@
 //Pages
 @import "../pages/index.scss";
 @import "../pages/account.scss";
+@import "../pages/productos/categoria.scss";
 
 //Components
 @import "../components/Header/Header.scss";
@@ -18,3 +19,4 @@
 @import "../components/Account/ChangePasswordForm/ChangePasswordForm.scss";
 @import "../components/Account/AddressForm/AddressForm.scss";
 @import "../components/Account/ListAddress/ListAddress.scss";
+@import "../components/ListProducts/ListProducts.scss";
