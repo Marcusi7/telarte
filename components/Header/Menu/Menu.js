@@ -1,14 +1,16 @@
-
 import React, { useState, useEffect } from "react";
-import {Container, Menu, Grid, Icon, Label, GridColumn} from "semantic-ui-react";
+import {Container, Menu, Grid, Icon } from "semantic-ui-react";
 import Link from "next/link";
+import { map } from "lodash";
 import BasicModal from "../../Modal/BasicModal";
 import Auth from "../../Auth";
 import useAuth from "../../../Hooks/useAuth";
 import { getMeApi } from "../../../api/user";
+import { getCategoriasApi } from "../../../api/categoria";
 
 export default function MenuWeb() {
     
+    const [categorias, setCategorias] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [titleModal, setTitleModal] = useState("iniciar sesion");
     const [user, setUser] = useState(undefined); 
@@ -21,6 +23,13 @@ export default function MenuWeb() {
         })();
     }, [auth]);
 
+    useEffect(() => {
+        (async () => {
+            const response = await getCategoriasApi();
+            setCategorias(response || []);
+        })();//función anónima que se autoejecuta
+    }, []);
+
     const onShowModal = () => setShowModal(true);
     const onCloseModal = () => setShowModal(false);
 
@@ -29,8 +38,7 @@ export default function MenuWeb() {
           <Container>
               <Grid>
                   <Grid.Column className="menu__left" width={6}>
-                      <MenuPlataforms />
-                      
+                      <MenuPlatforms categorias={categorias} />               
                   </Grid.Column>
                   <Grid.Column className="menu__right" width={10}>
                     {user !== undefined && (
@@ -40,8 +48,6 @@ export default function MenuWeb() {
                         logout={logout}
                         />
                     )}
-                    
-
                       
                   </Grid.Column>
               </Grid>
@@ -58,27 +64,18 @@ export default function MenuWeb() {
     );
 }
 
+function MenuPlatforms(props) {
+    const { categorias } = props;
 
-function MenuPlataforms() {
     return(
         <Menu>
-            <Link href="index.html">
-                <Menu.Item as="a">Inicio</Menu.Item>
-           </Link>
-            <Link href="#">
-                <Menu.Item as="a">Dormitorio</Menu.Item>
-           </Link>
-           <Link href="#">
-                <Menu.Item as="a">Cuarto de Baño</Menu.Item>
-           </Link>
-           <Link href="#">
-                <Menu.Item as="a">Hogar</Menu.Item>
-           </Link>
-           <Link href="#">
-                <Menu.Item as="a">Acerca de</Menu.Item>
-           </Link>
-          
-
+          {map(categorias, (categoria) => (
+              <Link href={`/productos/${categoria.url}`} key={categoria._id}>
+                  <Menu.Item as="a" name={categoria.url}>
+                    {categoria.title}
+                  </Menu.Item>
+              </Link>
+          ))}
         </Menu>
     );
 }

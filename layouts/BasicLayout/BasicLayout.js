@@ -19,16 +19,19 @@ return (
         <footer className = "foo">
             <div>
             <section className = "seccionpie">
-                <h1>CONTACTOS</h1><br></br>
-                    <p>Dep. Administrativo: (02) 2265567 ext 1301</p><br></br>
-                    <p>Recursos Humanos: (02) 2265567 ext 1701</p><br></br>
-                    <p>email: uomovenetto@davos.com.ec</p>
+                <h3>TELARTE</h3>
+                    <p><b>Ubicación: </b>Av. 12 de Octubre 1076 y Vicente Ramón Roca</p>
+                    <p><b>Teléfono: </b>(02) 2265567 ext 1701</p>
+                    <p><b>Contacto: </b>jalarcon@puce.com.ec</p>
             </section>
             <section className = "seccionpie">
-                <h1>CONTACTOS</h1><br></br>
-                    <p>Dep. Administrativo: (02) 2265567 ext 1301</p><br></br>
-                    <p>Recursos Humanos: (02) 2265567 ext 1701</p><br></br>
-                    <p>email: uomovenetto@davos.com.ec</p>
+                <h3>POPULARES</h3>
+                    <p><a href="../productos/dormitorio">Ropa de cama</a></p>
+                    <p><a href="../productos/cuarto-de-bano">Accesorios para el baño</a></p>
+                    <p><a href="../productos/hogar">Artículos varios</a></p>
+            </section>
+            <section className = "seccionpie2">
+                <p>® Todos los derechos reservados TelArte - JC Tech Solutions - 2021</p>
             </section>
             </div>
         </footer>
