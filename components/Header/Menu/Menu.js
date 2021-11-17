@@ -69,6 +69,7 @@ function MenuPlatforms(props) {
 
     return(
         <Menu>
+<<<<<<< HEAD
           {map(categorias, (categoria) => (
               <Link href={`/productos/${categoria.url}`} key={categoria._id}>
                   <Menu.Item as="a" name={categoria.url}>
@@ -76,6 +77,25 @@ function MenuPlatforms(props) {
                   </Menu.Item>
               </Link>
           ))}
+=======
+            <Link href="index.html">
+                <Menu.Item as="a">Inicio</Menu.Item>
+           </Link>
+            <Link href="#">
+                <Menu.Item as="a">Dormitorio</Menu.Item>
+           </Link>
+           <Link href="#">
+                <Menu.Item as="a">Cuarto de Baño</Menu.Item>
+           </Link>
+           <Link href="#">
+                <Menu.Item as="a">Hogar</Menu.Item>
+           </Link>
+           <Link href="#">
+
+           </Link>
+          
+
+>>>>>>> ec6fb20a425f8430f039c20886cc08fc6d0e29c9
         </Menu>
     );
 }

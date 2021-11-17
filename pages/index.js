@@ -17,6 +17,7 @@ export default function Home() {
   }, []);
 
   return (
+<<<<<<< HEAD
       <BasicLayout className="home">
 
       {!products && <Loader active>Cargando Productos</Loader>}
@@ -27,6 +28,12 @@ export default function Home() {
 
       )}
       {size(products)>0 && <ListProducts products={products} />}
+=======
+    
+      <BasicLayout className="">
+      <h1>TelArte</h1>
+      
+>>>>>>> ec6fb20a425f8430f039c20886cc08fc6d0e29c9
       </BasicLayout>
   );
 }
