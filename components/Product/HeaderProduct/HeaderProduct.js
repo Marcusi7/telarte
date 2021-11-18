@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Grid, Image, Icon, Button } from "semantic-ui-react";
 import { size } from "lodash";
+import useCart from "../../../Hooks/useCart"
 
 export default function HeaderProduct(props) {
     const {product} = props;
@@ -21,7 +22,9 @@ export default function HeaderProduct(props) {
 
 function Info(props) {
     const { product } = props;
-    const { title, summary, price } = product;
+    const { title, summary, price, url } = product;
+
+    const { addProductCart } =useCart();
 
     return (  //no implementamo el ícono en el primer div porque nmo tenemos wishlist
         <>
@@ -36,7 +39,11 @@ function Info(props) {
                 <div className="header-product__buy-price">
                     <p><b>Costo por unidad: </b>${price}</p>
                 </div>
-                <Button className="header-product__buy-btn">Comprar</Button>
+                <Button 
+                    className="header-product__buy-btn" 
+                    onClick={() => addProductCart(url)}>
+                        Comprar
+                </Button>
             </div>
         </>
     );

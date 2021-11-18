@@ -3,4 +3,17 @@
     padding: 30px;
     border-radius: 20px;
   }
+
+  .AcercaDe {
+    color: rgb(29, 7, 90);
+    text-align: justify;
+
+    > h2 {
+      color: yellowgreen;
+    }
+
+    > h3 {
+      color: #05386b;
+    }
+  }
 }
