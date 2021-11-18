@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useMemo} from "react"; 
+import React, { useState, useEffect, useMemo } from "react";
 import { ToastContainer } from "react-toastify";
 import jwtDecode from "jwt-decode";
 import { useRouter } from "next/router";
@@ -6,17 +6,19 @@ import AuthContext from "../context/AuthContext";
 import { setToken, getToken, removeToken } from "../api/token";
 import "../scss/global.scss";
 import "semantic-ui-css/semantic.min.css";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function MyApp({ Component, pageProps }) {
   const [auth, setAuth] = useState(undefined);
   const [realoadUser, setReloadUser] = useState(false);
   const router = useRouter();
-  
+
   useEffect(() => {
     const token = getToken();
-    if(token) {
+    if (token) {
       setAuth({
         token,
         idUser: jwtDecode(token).id,
@@ -25,24 +27,23 @@ export default function MyApp({ Component, pageProps }) {
       setAuth(null);
     }
     setReloadUser(false);
-  },[realoadUser]);
+  }, [realoadUser]);
 
   const login = (token) => {
     setToken(token);
-     setAuth ({
-        token,
-        idUser: jwtDecode(token).id,
-      });
+    setAuth({
+      token,
+      idUser: jwtDecode(token).id,
+    });
   };
 
   const logout = () => {
-    if(auth) {
+    if (auth) {
       removeToken();
       setAuth(null);
       router.push("/");
     }
-  }
-
+  };
 
   const authData = useMemo(
     () => ({
@@ -54,24 +55,22 @@ export default function MyApp({ Component, pageProps }) {
     [auth]
   );
 
-  if(auth === undefined) return null;
-  
+  if (auth === undefined) return null;
+
   return (
-  <AuthContext.Provider value={authData}> 
-      <Component {...pageProps} /> 
-      <ToastContainer 
-      position="top-right"
-      autoClose={5000}
-      hideProgressBar
-      newestOnTop
-      closeOnClick
-      rtl={false}
-      pauseOnFocusLoss={false}
-      draggable
-      pauseOnHover
+    <AuthContext.Provider value={authData}>
+      <Component {...pageProps} />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover
       />
-  </AuthContext.Provider>
+    </AuthContext.Provider>
   );
 }
-
-  

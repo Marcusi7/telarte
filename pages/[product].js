@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import BasicLayout  from '../layouts/BasicLayout/BasicLayout';
 import { getProductByUrlApi} from "../api/product";
 import HeaderProduct from "../components/Product/HeaderProduct/HeaderProduct";
+import TabsProduct from "../components/Product/TabsProduct";
 
 
 export default function Product() {
@@ -23,7 +24,7 @@ export default function Product() {
     return (
         <BasicLayout className="product">
             <HeaderProduct product={product} />
-            <p>tabs Product</p>
+            <TabsProduct product = {product}/>
         </BasicLayout>
     );
 }

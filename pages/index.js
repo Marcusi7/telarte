@@ -5,6 +5,7 @@ import BasicLayout from "../layouts/BasicLayout/BasicLayout";
 import { getLastProductsApi } from "../api/product";
 import ListProducts from "../components/ListProducts";
 
+
 export default function Home() {
   const [products, setProducts] = useState(null);
 
