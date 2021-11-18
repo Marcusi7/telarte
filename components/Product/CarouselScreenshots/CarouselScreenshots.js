@@ -1,4 +1,3 @@
-//import React, { useState } from "react";
 import React, { useState } from "react";
 import { Image, Modal } from "semantic-ui-react";
 import Slider from "react-slick";
@@ -9,7 +8,7 @@ const settings = {
   dots: false,
   infinite: true,
   speed: 500,
-  slidesToShow: 3,
+  slidesToShow: 2,
   swipeToSlider: true,
 };
 
@@ -24,20 +23,20 @@ export default function CarouselScreenshots(props) {
   };
 
   return (
-      <>
-    <Slider {...settings}>
-      {map(screenshots, (screenshot) => (
-        <Image
-          key={screenshot.id}
-          src={screenshot.url}
-          alt={screenshot.name}
-          onClick={() => openImagen(screenshot.url)}       
-        />
-      ))}
-    </Slider>
-    <Modal open={showModal} onClose={() => setShowModal(false)} size="large">
-    <Image src={urlImage} alt={title} />
-    </Modal>
+    <>
+      <Slider {...settings}>
+        {map(screenshots, (screenshot) => (
+          <Image
+            key={screenshot.id}
+            src={screenshot.url}
+            alt={screenshot.name}
+            onClick={() => openImagen(screenshot.url)}
+          />
+        ))}
+      </Slider>
+      <Modal open={showModal} onClose={() => setShowModal(false)} size="large">
+        <Image src={urlImage} alt={title} />
+      </Modal>
     </>
   );
 }

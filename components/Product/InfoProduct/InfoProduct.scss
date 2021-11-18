@@ -1,3 +1,12 @@
 .info-product {
   overflow: hidden;
+
+  &__content {
+    padding: 14px;
+    color: rgb(111, 43, 128);
+
+    > h4 {
+      color: rgb(45, 145, 120);
+    }
+  }
 }

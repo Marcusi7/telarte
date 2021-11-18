@@ -7,7 +7,7 @@ export default function TabsProduct(props) {
 
     const panes = [
         {
-          menuItem: "Información",
+          menuItem: "Galería",
           render: () => (
             <Tab.Pane>
               <InfoProduct product={product}/>

@@ -35,7 +35,7 @@
         text-align: center;
         color: $font-grey;
         font-size: 22px;
-        color: $primary;
+        color: #fff;
         margin: 0;
       }
 
@@ -49,7 +49,7 @@
     &-btn.ui.button {
       position: relative;
       width: 160px;
-      background-color: $primary !important;
+      background-color: #379683ef !important;
       color: $font-light !important;
       font-size: 18px;
       padding: 19px;
@@ -69,7 +69,7 @@
         border-radius: 10px 4px 10px 0;
         -ms-transform: rotate(45deg) skew(15deg, 15deg);
         transform: rotate(45deg) skew(15deg, 15deg);
-        background-color: $primary;
+        background-color: #379683ef;
         content: "";
       }
     }

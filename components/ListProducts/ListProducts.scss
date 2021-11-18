@@ -7,13 +7,15 @@
 
     img {
       width: 100%;
+      border-radius: 4px;
+      box-shadow: 0px 0px 4px rgb(173, 173, 173);
     }
 
     h2 {
       text-align: center;
       margin-top: 5px;
-      font-size: 15px;
-      color: $font-grey;
+      font-size: 20px;
+      color: rgb(34, 1, 88);
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
@@ -37,9 +39,9 @@
 
       .price {
         background-color: rgba(0, 0, 0, 0.623);
-        padding: 1px 5px 3px 1px;
+        padding: 2px 8px 4px 1px;
         color: white;
-        font-size: 15px;
+        font-size: 20px;
         border-radius: 8px;
       }
     }
