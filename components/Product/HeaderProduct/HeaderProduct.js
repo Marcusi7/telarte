@@ -21,12 +21,23 @@ export default function HeaderProduct(props) {
 
 function Info(props) {
     const { product } = props;
-    const {title } = product;
+    const { title, summary, price } = product;
 
-    return (
-        <div className="header-product_title">
-            {title}
-            <Icon name="heart outline" link />
-        </div>
+    return (  //no implementamo el ícono en el primer div porque nmo tenemos wishlist
+        <>
+            <div className="header-product__title">
+                {title}
+            </div>
+            <div className="header-product__summary" 
+            dangerouslySetInnerHTML={{__html: summary}}
+            />
+               
+            <div className="header-product__buy">
+                <div className="header-product__buy-price">
+                    <p><b>Costo por unidad: </b>${price}</p>
+                </div>
+                <Button className="header-product__buy-btn">Comprar</Button>
+            </div>
+        </>
     );
 }
