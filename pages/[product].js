@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from "react";
 import { useRouter } from "next/router";
 import BasicLayout  from '../layouts/BasicLayout/BasicLayout';
-import { getProductByUrlApi} from "../api/product"
+import { getProductByUrlApi} from "../api/product";
+import HeaderProduct from "../components/Product/HeaderProduct/HeaderProduct";
 
 
 export default function Product() {
@@ -15,11 +16,14 @@ export default function Product() {
             setProduct(response);
         })()
     }, [query])
+
+    if(!product) return null;
     
 
     return (
         <BasicLayout className="product">
-            <h1>Estamos en Product: {query.product} </h1>
+            <HeaderProduct product={product} />
+            <p>tabs Product</p>
         </BasicLayout>
     );
 }
