@@ -2,4 +2,13 @@
   &.ui.grid {
     margin: 0;
   }
+
+  &_title {
+    position: relative;
+    background-color: $background-grey-dark;
+    padding: 10px 0;
+    color: $font-light;
+    text-align: center;
+    font-weight: bold;
+  }
 }

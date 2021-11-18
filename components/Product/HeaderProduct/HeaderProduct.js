@@ -12,8 +12,21 @@ export default function HeaderProduct(props) {
                 <Image src={poster.url} alt={title} fluid />
             </Grid.Column>
             <Grid.Column mobile={16} tablet={10} computer={11}>
-                <p>Product info</p>
+                <Info product={product}/>
             </Grid.Column>
         </Grid>
+    );
+}
+
+
+function Info(props) {
+    const { product } = props;
+    const {title } = product;
+
+    return (
+        <div className="header-product_title">
+            {title}
+            <Icon name="heart outline" link />
+        </div>
     );
 }
