@@ -21,6 +21,7 @@ function EmptyCart(){
 function FullCart(props){
     const{articulos}= props;
     const [articulosData, setArticulosData] = useState(null);
+    const [reloadCart, setReloadCart] = useState(false);
     
     useEffect(() => {
         (async ()=>{
@@ -30,12 +31,13 @@ function FullCart(props){
                 articulosTemp.push(data);
             }
             setArticulosData(articulosTemp);
-        })()
-    }, [])
+        })();
+        setReloadCart(false);
+    }, [reloadCart])
     
     return (
         <BasicLayout className="empty-cart">
-        <SummaryCart articulos={articulosData}/>
+        <SummaryCart articulos={articulosData} reloadCart={reloadCart} setReloadCart={setReloadCart}/>
         </BasicLayout>
     );
 

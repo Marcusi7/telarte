@@ -1,6 +1,7 @@
 import { toast } from "react-toastify";
 import { size, include, remove, includes } from "lodash-es";
 import { BASE_PATH, CART } from "../utils/constants";
+import { Item } from "semantic-ui-react";
 
 export function getProductsCart() {     
     const cart = localStorage.getItem(CART);      //usamos localstorage para que guarde creo que por sesión
@@ -39,5 +40,19 @@ export function countProductsCart() {
         return 0;
     } else {
         return size(cart);
+    }
+}
+
+export function removeProductCart(product) {
+    const cart = getProductsCart();
+
+    remove(cart, (item) => {
+        return item === product;
+    });
+
+    if(size(cart) > 0) {
+        localStorage.setItem(CART, cart);
+    } else {
+        localStorage.removeItem(CART);
     }
 }

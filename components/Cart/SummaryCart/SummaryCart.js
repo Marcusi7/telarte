@@ -5,8 +5,9 @@ import useCart from '../../../Hooks/useCart';
 import { getProductsCart } from '../../../api/cart';
 
 export default function SummaryCart(props) {
-    const {articulos}=props;
+    const { articulos, reloadCart, setReloadCart }=props;
     const [totalPrice, setTotalPrice] = useState(0);
+    const { removeProductCart} = useCart();
 
     useEffect(() => {
         let price=0;
@@ -14,7 +15,13 @@ export default function SummaryCart(props) {
             price +=articulo.price;
         })
         setTotalPrice(price);
-    }, [])
+    }, [reloadCart, articulos]);
+
+    const removeProduct = (articulo) => {
+        removeProductCart(articulo); 
+        setReloadCart(true);     
+    };
+
     return (
         <div className="summary-cart">
             <div className="title"> Resumen del carrito </div>
@@ -32,7 +39,7 @@ export default function SummaryCart(props) {
                         {map(articulos,(articulo)=>(
                             <Table.Row key={articulo.id} className="summary-cart__product">
                                 <Table.Cell>
-                                    <Icon name="close" link onClick={() => console.log("Borrar producto")} />
+                                    <Icon name="close" link onClick={() => removeProduct(articulo.url)} />
                                     <Image src={articulo.poster.url} alt={articulo.title}/>
                                     {articulo.title}
                                 </Table.Cell>

@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import AuthContext from "../context/AuthContext";
 import CartContext from "../context/CartContext";
 import { setToken, getToken, removeToken } from "../api/token";
-import { getProductsCart, addProductCart, countProductsCart } from "../api/cart";
+import { getProductsCart, addProductCart, countProductsCart, removeProductCart } from "../api/cart";
 import "../scss/global.scss";
 import "semantic-ui-css/semantic.min.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -65,6 +65,12 @@ export default function MyApp({ Component, pageProps }) {
   };
 
 
+  const removeProduct = (product) => {
+    removeProductCart(product);
+    setReloadCart(true);
+  };
+
+
   const authData = useMemo(
     () => ({
       auth,
@@ -80,7 +86,7 @@ export default function MyApp({ Component, pageProps }) {
       productsCart: totalProductsCart,
       addProductCart: (product) => addProduct(product),
       getProductCart: getProductsCart,
-      removeProductCart: () => null,
+      removeProductCart: (product) => removeProduct(product),
       removeAllProductCart: () => null,
     }),
     [totalProductsCart]
