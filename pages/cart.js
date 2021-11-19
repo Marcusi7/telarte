@@ -3,6 +3,7 @@ import BasicLayout from "../layouts/BasicLayout/BasicLayout";
 import { getProductByUrlApi} from "../api/product";
 import useCart from '../Hooks/useCart';
 import SummaryCart from '../components/Cart/SummaryCart/SummaryCart';
+import AddressShipping from '../components/Cart/AddressShipping';
 
 export default function Cart() {
     const { getProductCart }= useCart();
@@ -38,9 +39,12 @@ function FullCart(props){
     return (
         <BasicLayout className="empty-cart">
         <SummaryCart articulos={articulosData} reloadCart={reloadCart} setReloadCart={setReloadCart}/>
+        <AddressShipping />
         </BasicLayout>
     );
 
 }
+
+
 
 
