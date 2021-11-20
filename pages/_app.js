@@ -16,7 +16,7 @@ export default function MyApp({ Component, pageProps }) {
   const [auth, setAuth] = useState(undefined);
   const [realoadUser, setReloadUser] = useState(false);
   const [totalProductsCart, setTotalProductsCart] = useState(0);
-  const [reloadCart, setReloadCart] = useState(false)
+  const [reloadCart, setReloadCart] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -94,6 +94,7 @@ export default function MyApp({ Component, pageProps }) {
 
   if (auth === undefined) return null;
 
+  //console.log("este es el id user"+ auth.idUser);
   return (
     <AuthContext.Provider value={authData}>
       <CartContext.Provider value={cartData}>

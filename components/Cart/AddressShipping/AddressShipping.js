@@ -28,7 +28,7 @@ export default function AddressShipping(props) {
                     <h3>
                         No hay ninguna dirección creada
                         <Link href="/account">
-                            <a> añadir tu primera direccion.</a>
+                            <a> Añade tu primera dirección.</a>
                         </Link>
                     </h3>
                 ) : (
@@ -51,7 +51,6 @@ export default function AddressShipping(props) {
                     </Grid>
                 )}
             </div>
-            <h1> AddressShipping </h1>
         </div>
     );
 }

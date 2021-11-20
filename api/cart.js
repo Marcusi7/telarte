@@ -3,6 +3,8 @@ import { size, include, remove, includes } from "lodash-es";
 import { BASE_PATH, CART } from "../utils/constants";
 import { Item } from "semantic-ui-react";
 
+import { authFetch } from "../utils/fetch";
+
 export function getProductsCart() {     
     const cart = localStorage.getItem(CART);      //usamos localstorage para que guarde creo que por sesión
     
@@ -54,5 +56,31 @@ export function removeProductCart(product) {
         localStorage.setItem(CART, cart);
     } else {
         localStorage.removeItem(CART);
+    }
+}
+
+export async function paymentCartApi(articulos, idUser, address, logout) {
+    try {
+        const addressShipping = address;
+        delete addressShipping.user;
+        delete addressShipping.createdAt;
+
+        const url = `${BASE_PATH}/orders`;
+        const params = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                articulos,
+                idUser,
+                addressShipping
+            })
+        };
+        const result = await authFetch(url, params, logout);
+        return result;
+    } catch (error) {
+        console.log(error);
+        return null;
     }
 }

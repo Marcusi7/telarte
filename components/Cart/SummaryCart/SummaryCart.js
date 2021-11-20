@@ -45,14 +45,14 @@ export default function SummaryCart(props) {
                                 </Table.Cell>
                                 <Table.Cell>{articulo.categoria.title}</Table.Cell>
                                 <Table.Cell>Inmediata</Table.Cell>
-                                <Table.Cell>{articulo.price}$</Table.Cell>
+                                <Table.Cell>$    {articulo.price}</Table.Cell>
                             </Table.Row>
                         ))}
 
                         <Table.Row className="summary-cart__resume">
                             <Table.Cell className="clear"/>
                             <Table.Cell colSpan="2">Total: </Table.Cell>
-                            <Table.Cell className="total-price">{(totalPrice).toFixed(2)}$</Table.Cell>
+                            <Table.Cell className="total-price">$  {(totalPrice).toFixed(2)}</Table.Cell>
 
                         </Table.Row>
                     </Table.Body>

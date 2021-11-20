@@ -1,0 +1,13 @@
+.form-payment {
+  width: 40%;
+  margin: 0 auto;
+
+  .ui.button {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: $primary;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+    color: $font-light;
+    width: 100%;
+  }
+}
