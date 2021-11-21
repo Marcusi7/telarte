@@ -30,7 +30,7 @@ export function addProductCart(product) {
         } else {
             cart.push(product);
             localStorage.setItem(CART, cart);
-            toast.success("producto añadido al carrito");
+            toast.success("Producto añadido al carrito");
         }
     }
 }
@@ -59,7 +59,7 @@ export function removeProductCart(product) {
     }
 }
 
-export async function paymentCartApi(articulos, idUser, address, logout) {
+export async function paymentCartApi(product, user, address, totalPayment, logout) {
     try {
         const addressShipping = address;
         delete addressShipping.user;
@@ -72,9 +72,10 @@ export async function paymentCartApi(articulos, idUser, address, logout) {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                articulos,
-                idUser,
-                addressShipping
+                product,
+                user,
+                addressShipping,
+                totalPayment
             })
         };
         const result = await authFetch(url, params, logout);
@@ -83,4 +84,8 @@ export async function paymentCartApi(articulos, idUser, address, logout) {
         console.log(error);
         return null;
     }
+}
+
+export function removeAllProductsCart () {
+    localStorage.removeItem(CART);
 }
